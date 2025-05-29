@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EliteControl - Dashboard</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-analytics.js"></script> -->
+</head>
+<body class="bg-slate-900 text-slate-300 min-h-screen flex flex-col" id="dashboardPage">
+    <!-- Barra de Navegação Superior -->
+    <header class="bg-slate-800 border-b border-slate-700 shadow-md">
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center">
+                <button id="sidebarToggle" class="text-slate-400 hover:text-sky-400 mr-4 lg:hidden">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+                <div class="flex items-center">
+                    <i class="fas fa-cogs text-sky-400 text-2xl mr-2"></i>
+                    <h1 class="text-xl font-bold text-slate-100">EliteControl</h1>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4">
+                <!-- Notificações -->
+                <div class="relative">
+                    <button id="notificationBellButton" class="text-slate-400 hover:text-sky-400 relative">
+                        <i class="fas fa-bell text-xl"></i>
+                        <span id="notificationCountBadge" class="notification-badge hidden">0</span>
+                    </button>
+                    <div id="notificationDropdown" class="notification-dropdown hidden">
+                        <div class="flex justify-between items-center border-b border-slate-700 pb-2 mb-2">
+                            <h6 class="font-semibold text-slate-200">Notificações</h6>
+                            <button id="markAllAsReadButton" class="text-sky-400 hover:text-sky-300 text-xs">Marcar todas como lidas</button>
+                        </div>
+                        <div id="notificationList" class="max-h-80 overflow-y-auto">
+                            <!-- Notificações serão inseridas aqui -->
+                        </div>
+                    </div>
+                </div>
+                <!-- Perfil do Usuário -->
+                <div class="flex items-center">
+                    <div class="mr-3 text-right hidden sm:block">
+                        <div id="usernameDisplay" class="text-sm font-medium text-slate-200">Carregando...</div>
+                        <div id="userRoleDisplay" class="text-xs text-slate-400">...</div>
+                    </div>
+                    <div id="userAvatar" class="w-8 h-8 rounded-full bg-sky-500 flex items-center justify-center text-white font-medium">
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+                <!-- Botão de Logout -->
+                <button id="logoutButton" class="text-slate-400 hover:text-red-400">
+                    <i class="fas fa-sign-out-alt"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <div class="flex flex-1 overflow-hidden">
+        <!-- Sidebar -->
+        <aside id="sidebar" class="sidebar">
+            <nav class="py-4">
+                <ul id="navLinks" class="space-y-1">
+                    <!-- Links de navegação serão inseridos aqui -->
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Área de Conteúdo Principal -->
+        <main class="flex-1 overflow-y-auto p-4 lg:p-6">
+            <div class="container mx-auto">
+                <!-- Cabeçalho da Página -->
+                <div class="mb-6">
+                    <h2 id="pageTitle" class="text-2xl font-bold text-sky-400">Carregando...</h2>
+                    <p id="pageSubtitle" class="text-slate-400">Por favor, aguarde...</p>
+                </div>
+
+                <!-- Conteúdo do Dashboard -->
+                <div id="mainDashboardContent" class="space-y-8">
+                    <!-- KPIs -->
+                    <div id="kpiContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <!-- KPIs serão inseridos aqui -->
+                    </div>
+
+                    <!-- Gráficos -->
+                    <div id="chartsContainer" class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        <!-- Gráficos serão inseridos aqui -->
+                    </div>
+
+                    <!-- Atividades Recentes -->
+                    <div id="recentActivitiesContainer" class="bg-slate-800 rounded-lg shadow-lg p-4">
+                        <!-- Atividades recentes serão inseridas aqui -->
+                    </div>
+                </div>
+
+                <!-- Área de Conteúdo Dinâmico -->
+                <div id="dynamicContentArea" class="mt-6">
+                    <!-- Conteúdo dinâmico será inserido aqui -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Alertas Temporários -->
+    <div id="temporaryAlertsContainer" class="fixed top-4 right-4 z-50 space-y-2 max-w-md"></div>
+
+    <!-- Placeholder para Modais -->
+    <div id="modalPlaceholder"></div>
+
+    <!-- Configuração do Firebase -->
+    <script src="js/firebase-config.js"></script>
+    <!-- Dados e Lógica (com Firebase) -->
+    <script src="js/elitecontrol-data.js"></script>
+    <!-- Lógica Principal -->
+    <script src="js/main.js"></script>
+</body>
+</html>

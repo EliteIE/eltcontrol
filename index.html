@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EliteControl - Login</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-analytics.js"></script> -->
+</head>
+<body class="bg-gradient-to-br from-slate-900 to-slate-800 flex items-center justify-center min-h-screen p-4">
+
+    <div class="w-full max-w-md bg-slate-800/80 backdrop-blur-sm rounded-xl shadow-2xl p-8 border border-slate-700">
+        <div class="text-center mb-8">
+            <i class="fas fa-cogs text-5xl text-sky-400 mb-4"></i>
+            <h1 class="text-3xl font-bold text-slate-100">EliteControl</h1>
+            <p class="text-slate-400">Seu sistema de gestão inteligente</p>
+        </div>
+
+        <form id="loginForm" class="space-y-6">
+            <div>
+                <label for="email" class="block text-sm font-medium text-slate-300 mb-1">Email</label>
+                <div class="relative">
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+                        <i class="fas fa-envelope text-slate-500"></i>
+                    </span>
+                    <input type="email" id="email" name="email" required 
+                           class="login-input pl-10" 
+                           placeholder="seu@email.com">
+                </div>
+            </div>
+
+            <div>
+                <label for="password" class="block text-sm font-medium text-slate-300 mb-1">Senha</label>
+                <div class="relative">
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+                        <i class="fas fa-lock text-slate-500"></i>
+                    </span>
+                    <input type="password" id="password" name="password" required 
+                           class="login-input pl-10" 
+                           placeholder="********">
+                </div>
+            </div>
+
+            <div id="loginErrorMessage" class="bg-red-900/50 border border-red-700 text-red-300 px-4 py-2 rounded-md text-sm hidden">
+                <!-- Mensagem de erro será inserida aqui -->
+            </div>
+
+            <div>
+                <button type="submit" 
+                        class="w-full bg-sky-500 hover:bg-sky-600 text-white font-semibold py-3 px-4 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-opacity-75">
+                    Entrar
+                </button>
+            </div>
+        </form>
+
+        <p class="mt-8 text-center text-xs text-slate-500">
+            &copy; 2025 EliteControl. Todos os direitos reservados.
+        </p>
+    </div>
+
+    <!-- Configuração do Firebase -->
+    <script src="js/firebase-config.js"></script>
+    <!-- Dados e Lógica (com Firebase) -->
+    <script src="js/elitecontrol-data.js"></script>
+    <!-- Lógica Principal (inclui a lógica de login) -->
+    <script src="js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,390 @@
+/* styles.css - Versão Aprimorada */
+
+/* Estilos Globais */
+:root {
+    --color-primary: #38bdf8;
+    --color-primary-dark: #0284c7;
+    --color-success: #34d399;
+    --color-warning: #fbbf24;
+    --color-danger: #f87171;
+    --color-bg-dark: #0f172a;
+    --color-bg-card: #1e293b;
+    --color-bg-card-hover: #334155;
+    --color-text-light: #f1f5f9;
+    --color-text-muted: #94a3b8;
+    --color-border: #334155;
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1e293b;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #475569;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #64748b;
+}
+
+.scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: #475569 #1e293b;
+}
+
+/* Sidebar */
+.sidebar {
+    @apply w-64 bg-slate-800 border-r border-slate-700 shadow-lg overflow-y-auto transition-all duration-300 ease-in-out;
+    height: calc(100vh - 64px);
+}
+
+.sidebar.collapsed {
+    @apply -ml-64;
+}
+
+@media (max-width: 1024px) {
+    .sidebar {
+        @apply fixed top-16 left-0 z-40 -ml-64;
+    }
+    
+    .sidebar.expanded {
+        @apply ml-0;
+    }
+}
+
+.nav-link {
+    @apply flex items-center px-4 py-3 text-slate-300 hover:bg-slate-700 hover:text-sky-400 rounded-md transition-colors;
+}
+
+.nav-link.active {
+    @apply bg-sky-500/10 text-sky-400 font-medium;
+}
+
+.nav-link-icon {
+    @apply w-5 h-5 mr-3;
+}
+
+/* Formulários */
+.input-field {
+    @apply w-full bg-slate-700 border border-slate-600 rounded-md px-4 py-2 text-slate-200 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent transition-all;
+}
+
+.input-field-sales {
+    @apply w-full bg-slate-700 border border-slate-600 rounded-md px-3 py-2 text-slate-200 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent transition-all;
+}
+
+.input-field-sm {
+    @apply bg-slate-700 border border-slate-600 rounded-md px-3 py-1.5 text-sm text-slate-200 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent transition-all;
+}
+
+.select-field {
+    @apply w-full bg-slate-700 border border-slate-600 rounded-md px-4 py-2 text-slate-200 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent transition-all;
+}
+
+.lbl-sm {
+    @apply block text-xs font-medium text-slate-400 mb-1;
+}
+
+.lbl-sm-sales {
+    @apply block text-xs font-medium text-slate-400 mb-1;
+}
+
+/* Botões */
+.btn-primary {
+    @apply bg-sky-500 hover:bg-sky-600 text-white font-medium py-2 px-4 rounded-md transition-colors;
+}
+
+.btn-secondary {
+    @apply bg-slate-700 hover:bg-slate-600 text-slate-200 font-medium py-2 px-4 rounded-md transition-colors;
+}
+
+.btn-success {
+    @apply bg-green-500 hover:bg-green-600 text-white font-medium py-2 px-4 rounded-md transition-colors;
+}
+
+.btn-warning {
+    @apply bg-amber-500 hover:bg-amber-600 text-white font-medium py-2 px-4 rounded-md transition-colors;
+}
+
+.btn-danger {
+    @apply bg-red-500 hover:bg-red-600 text-white font-medium py-2 px-4 rounded-md transition-colors;
+}
+
+.btn-primary-sm {
+    @apply bg-sky-500 hover:bg-sky-600 text-white font-medium py-1.5 px-3 rounded-md text-sm transition-colors;
+}
+
+.btn-secondary-sm {
+    @apply bg-slate-700 hover:bg-slate-600 text-slate-200 font-medium py-1.5 px-3 rounded-md text-sm transition-colors;
+}
+
+.btn-success-sm {
+    @apply bg-green-500 hover:bg-green-600 text-white font-medium py-1.5 px-3 rounded-md text-sm transition-colors;
+}
+
+.btn-warning-sm {
+    @apply bg-amber-500 hover:bg-amber-600 text-white font-medium py-1.5 px-3 rounded-md text-sm transition-colors;
+}
+
+.btn-danger-sm {
+    @apply bg-red-500 hover:bg-red-600 text-white font-medium py-1.5 px-3 rounded-md text-sm transition-colors;
+}
+
+.btn-pagination {
+    @apply bg-slate-700 hover:bg-slate-600 text-slate-300 py-1 px-2 rounded text-sm transition-colors;
+}
+
+.btn-secondary-reports {
+    @apply bg-slate-700 hover:bg-slate-600 text-slate-200 font-medium py-1.5 px-3 rounded-md text-sm transition-colors flex items-center;
+}
+
+.btn-success-sales {
+    @apply bg-green-500 hover:bg-green-600 text-white font-medium py-2.5 px-4 rounded-md transition-colors flex items-center justify-center;
+}
+
+.btn-secondary-sales {
+    @apply bg-slate-700 hover:bg-slate-600 text-slate-200 font-medium py-2.5 px-4 rounded-md transition-colors flex items-center justify-center;
+}
+
+.btn-warning-sales {
+    @apply bg-amber-500 hover:bg-amber-600 text-white font-medium py-2 px-4 rounded-md transition-colors;
+}
+
+/* Tabelas */
+.th-sales {
+    @apply px-4 py-3 text-left text-xs font-medium text-slate-400 uppercase tracking-wider;
+}
+
+.th-sales-history {
+    @apply px-4 py-3 text-left text-xs font-medium text-slate-400 uppercase tracking-wider bg-slate-700;
+}
+
+.th-report {
+    @apply px-4 py-2 text-left text-xs font-medium text-slate-400 uppercase tracking-wider;
+}
+
+.th-report.numeric {
+    @apply text-right;
+}
+
+.td-report {
+    @apply px-4 py-2 text-sm text-slate-300 border-t border-slate-700;
+}
+
+.td-report.numeric {
+    @apply text-right;
+}
+
+.td-report-highlight {
+    @apply font-medium;
+}
+
+.table-report {
+    @apply min-w-full divide-y divide-slate-700;
+}
+
+/* Cards e Containers */
+.kpi-card {
+    @apply bg-slate-800 rounded-lg shadow-lg p-5 border border-slate-700 hover:border-sky-500/50 transition-colors;
+}
+
+.chart-container {
+    @apply bg-slate-800 rounded-lg shadow-lg p-5 border border-slate-700;
+    height: 300px;
+}
+
+.chart-container-reports {
+    @apply bg-slate-750 rounded-lg p-4 border border-slate-700;
+    height: 350px;
+}
+
+.chart-container-mgmt-reports {
+    @apply bg-slate-750 rounded-lg p-4 border border-slate-700;
+    height: 400px;
+}
+
+/* Notificações */
+.notification-badge {
+    @apply absolute -top-1 -right-1 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full;
+}
+
+.notification-dropdown {
+    @apply absolute right-0 mt-2 w-80 bg-slate-800 border border-slate-700 rounded-lg shadow-lg p-3 z-50;
+}
+
+.notification-item {
+    @apply p-3 border-b border-slate-700 last:border-b-0 hover:bg-slate-750 transition-colors;
+}
+
+.notification-item.unread {
+    @apply bg-slate-750;
+}
+
+.notification-title {
+    @apply font-medium text-slate-200;
+}
+
+.notification-message {
+    @apply text-slate-400 mt-1;
+}
+
+.notification-time {
+    @apply text-slate-500;
+}
+
+/* Alertas Temporários */
+.temporary-alert {
+    @apply flex items-center justify-between p-4 rounded-lg shadow-lg border transform translate-x-full opacity-0 transition-all duration-500;
+    max-width: 24rem;
+}
+
+.temporary-alert.show {
+    @apply translate-x-0 opacity-100;
+}
+
+.temporary-alert-info {
+    @apply bg-sky-900/70 border-sky-700 text-sky-200;
+}
+
+.temporary-alert-success {
+    @apply bg-green-900/70 border-green-700 text-green-200;
+}
+
+.temporary-alert-warning {
+    @apply bg-amber-900/70 border-amber-700 text-amber-200;
+}
+
+.temporary-alert-error {
+    @apply bg-red-900/70 border-red-700 text-red-200;
+}
+
+.close-btn {
+    @apply ml-3 text-lg font-bold hover:text-white transition-colors;
+}
+
+/* Modais */
+.modal-backdrop {
+    @apply fixed inset-0 bg-slate-900 bg-opacity-75 flex items-center justify-center z-50 p-4;
+}
+
+.modal-content {
+    @apply bg-slate-800 p-6 rounded-lg shadow-xl w-full max-w-md;
+}
+
+.modal-title {
+    @apply text-xl font-semibold text-slate-100;
+}
+
+.modal-body {
+    @apply text-slate-300 my-4;
+}
+
+.modal-footer {
+    @apply mt-6 flex justify-end space-x-3;
+}
+
+/* Tabs */
+.tab-button {
+    @apply text-slate-400 border-transparent hover:text-slate-200 hover:border-slate-500;
+}
+
+.active-tab {
+    @apply text-sky-400 border-sky-400;
+}
+
+/* Login */
+.login-input {
+    @apply w-full bg-slate-700 border border-slate-600 rounded-md px-4 py-3 text-slate-200 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent transition-all;
+}
+
+/* Relatórios Gerenciais */
+.summary-reports {
+    @apply flex justify-between items-center p-6 cursor-pointer text-lg font-semibold text-slate-200 hover:bg-slate-750 transition-colors;
+}
+
+/* Módulo de IA */
+.ai-tab-button {
+    @apply px-4 py-2 text-slate-400 border-b-2 border-transparent hover:text-slate-200 hover:border-slate-500 transition-colors;
+}
+
+.ai-tab-button.active {
+    @apply text-sky-400 border-sky-400;
+}
+
+.ai-chat-message {
+    @apply p-3 rounded-lg mb-3 max-w-[80%];
+}
+
+.ai-chat-message.user {
+    @apply bg-sky-900/30 text-slate-200 ml-auto;
+}
+
+.ai-chat-message.assistant {
+    @apply bg-slate-700 text-slate-300;
+}
+
+.ai-chat-input {
+    @apply w-full bg-slate-700 border border-slate-600 rounded-full px-4 py-2 text-slate-200 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent transition-all;
+}
+
+.ai-recommendation-card {
+    @apply bg-slate-750 p-4 rounded-lg border border-slate-700 hover:border-sky-500/50 transition-colors;
+}
+
+.ai-prediction-card {
+    @apply bg-slate-750 p-4 rounded-lg border border-slate-700;
+}
+
+.ai-prediction-value {
+    @apply text-2xl font-bold text-sky-400;
+}
+
+.ai-prediction-label {
+    @apply text-sm text-slate-400;
+}
+
+/* Animações */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.animate-spin {
+    animation: spin 1s linear infinite;
+}
+
+/* Utilitários */
+.bg-slate-750 {
+    background-color: #243146;
+}
+
+.text-truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
